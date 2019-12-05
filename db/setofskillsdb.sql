@@ -5,15 +5,15 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 -- -----------------------------------------------------
--- Schema skillsdb
+-- Schema setofskillsdb
 -- -----------------------------------------------------
-DROP SCHEMA IF EXISTS `skillsdb` ;
+DROP SCHEMA IF EXISTS `setofskillsdb` ;
 
 -- -----------------------------------------------------
--- Schema skillsdb
+-- Schema setofskillsdb
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `skillsdb` DEFAULT CHARACTER SET utf8 ;
-USE `skillsdb` ;
+CREATE SCHEMA IF NOT EXISTS `setofskillsdb` DEFAULT CHARACTER SET utf8 ;
+USE `setofskillsdb` ;
 
 -- -----------------------------------------------------
 -- Table `user`
@@ -242,7 +242,7 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- Data for table `user`
 -- -----------------------------------------------------
 START TRANSACTION;
-USE `skillsdb`;
+USE `setofskillsdb`;
 INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `email`) VALUES (1, 'tester', 'tester', true, 'user', 'marx@gmail.com');
 INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `email`) VALUES (2, 'joe', 'doe', true, 'user', 'marx1@gmail.com');
 INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `email`) VALUES (3, 'josh', 'josh1', true, 'admin', 'marx2@gmail.com');
@@ -256,7 +256,7 @@ COMMIT;
 -- Data for table `skill`
 -- -----------------------------------------------------
 START TRANSACTION;
-USE `skillsdb`;
+USE `setofskillsdb`;
 INSERT INTO `skill` (`id`, `name`, `description`, `summary`, `prerequisite_skill_id`) VALUES (1, 'Knots', 'A knot is an intentional complication in cordage which may be useful or decorative. Practical knots may be classified as hitches, bends, splices, or knots. A hitch fastens a rope to another object; a bend unites two rope ends; a splice is a multi-strand bend or loop.[1] A knot in the strictest sense serves as a stopper or knob at the end of a rope to keep that end from slipping through a grommet or eye. Knots have excited interest since ancient times for their practical uses, as well as their topological intricacy, studied in the area of mathematics known as knot theory.', 'Knot tying skills are often transmitted by sailors, scouts, climbers, canyoners, cavers, arborists, rescue professionals, stagehands, fishermen, linemen and surgeons. ', NULL);
 INSERT INTO `skill` (`id`, `name`, `description`, `summary`, `prerequisite_skill_id`) VALUES (2, 'Chess', 'Each player begins with 16 pieces: one king, one queen, two rooks, two knights, two bishops, and eight pawns. Each piece type moves differently, with the most powerful being the queen and the least powerful the pawn. The objective is to checkmate the opponent\'s king by placing it under an inescapable threat of capture. To this end, a player\'s pieces are used to attack and capture the opponent\'s pieces, while supporting each other. During the game, play typically involves exchanging pieces for the opponent\'s similar pieces, and finding and engineering opportunities to trade advantageously or to get a better position. In addition to checkmate, a player wins the game if the opponent resigns, or (in a timed game) runs out of time. There are also several ways that a game can end in a draw.', 'Chess is a two-player strategy board game played on a checkered board with 64 squares arranged in an 8×8 grid.', NULL);
 INSERT INTO `skill` (`id`, `name`, `description`, `summary`, `prerequisite_skill_id`) VALUES (3, 'Tent Setup', 'A tent  is a shelter consisting of sheets of fabric or other material draped over, attached to a frame of poles or attached to a supporting rope. While smaller tents may be free-standing or attached to the ground, large tents are usually anchored using guy ropes tied to stakes or tent pegs. First used as portable homes by nomads, tents are now more often used for recreational camping and as temporary shelters.', 'Tents range in size from \"bivouac\" structures, just big enough for one person to sleep in, up to huge circus tents capable of seating thousands of people.', NULL);
@@ -289,7 +289,7 @@ COMMIT;
 -- Data for table `requirement`
 -- -----------------------------------------------------
 START TRANSACTION;
-USE `skillsdb`;
+USE `setofskillsdb`;
 INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (1, 'Knot Req 1', 'Learn to tie 5 knots.');
 INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (2, 'Knot Req 2', 'Teach someone to tie 5 knots');
 INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (3, 'Knot Req 3', 'Learn to tie 15 knots');
@@ -370,7 +370,7 @@ COMMIT;
 -- Data for table `achiever`
 -- -----------------------------------------------------
 START TRANSACTION;
-USE `skillsdb`;
+USE `setofskillsdb`;
 INSERT INTO `achiever` (`id`, `user_id`, `firstname`, `lastname`, `age`, `login_time`, `image_link`) VALUES (1, 1, 'testerprofile', NULL, NULL, NULL, NULL);
 INSERT INTO `achiever` (`id`, `user_id`, `firstname`, `lastname`, `age`, `login_time`, `image_link`) VALUES (2, 2, 'johnprofile', NULL, NULL, NULL, NULL);
 INSERT INTO `achiever` (`id`, `user_id`, `firstname`, `lastname`, `age`, `login_time`, `image_link`) VALUES (3, 3, 'joshprofile', NULL, NULL, NULL, NULL);
@@ -384,7 +384,7 @@ COMMIT;
 -- Data for table `resource`
 -- -----------------------------------------------------
 START TRANSACTION;
-USE `skillsdb`;
+USE `setofskillsdb`;
 INSERT INTO `resource` (`id`, `name`, `image_link`, `video_link`, `site_link`) VALUES (1, 'Knots', 'http://bit.ly/2kzodli', 'https://www.youtube.com/watch?v=3X8drKsdf5E', 'https://www.animatedknots.com');
 INSERT INTO `resource` (`id`, `name`, `image_link`, `video_link`, `site_link`) VALUES (2, 'Chess', 'https://upload.wikimedia.org/wikipedia/commons/6/6f/ChessSet.jpg', 'http://bit.ly/2mgRh1j', 'https://learningchess.net/us/index');
 INSERT INTO `resource` (`id`, `name`, `image_link`, `video_link`, `site_link`) VALUES (3, 'Tent Setup', 'http://bit.ly/2NfAGaw', 'http://bit.ly/2USYhyr', 'http://bit.ly/2Ne1kAe');
@@ -417,7 +417,7 @@ COMMIT;
 -- Data for table `achievement`
 -- -----------------------------------------------------
 START TRANSACTION;
-USE `skillsdb`;
+USE `setofskillsdb`;
 INSERT INTO `achievement` (`id`, `skill_id`, `achiever_id`, `date_started`) VALUES (1, 1, 1, '20190913');
 INSERT INTO `achievement` (`id`, `skill_id`, `achiever_id`, `date_started`) VALUES (2, 2, 1, '20190914');
 INSERT INTO `achievement` (`id`, `skill_id`, `achiever_id`, `date_started`) VALUES (3, 3, 1, '20190915');
@@ -433,7 +433,7 @@ COMMIT;
 -- Data for table `skill_requirement`
 -- -----------------------------------------------------
 START TRANSACTION;
-USE `skillsdb`;
+USE `setofskillsdb`;
 INSERT INTO `skill_requirement` (`id`, `requirement_id`, `skill_id`, `step_number`) VALUES (1, 1, 1, 1);
 INSERT INTO `skill_requirement` (`id`, `requirement_id`, `skill_id`, `step_number`) VALUES (2, 2, 1, 2);
 INSERT INTO `skill_requirement` (`id`, `requirement_id`, `skill_id`, `step_number`) VALUES (3, 3, 1, 3);
@@ -514,7 +514,7 @@ COMMIT;
 -- Data for table `skill_resource`
 -- -----------------------------------------------------
 START TRANSACTION;
-USE `skillsdb`;
+USE `setofskillsdb`;
 INSERT INTO `skill_resource` (`skill_id`, `resources_id`) VALUES (1, 1);
 INSERT INTO `skill_resource` (`skill_id`, `resources_id`) VALUES (2, 2);
 INSERT INTO `skill_resource` (`skill_id`, `resources_id`) VALUES (3, 3);
@@ -547,7 +547,7 @@ COMMIT;
 -- Data for table `achievement_requirement`
 -- -----------------------------------------------------
 START TRANSACTION;
-USE `skillsdb`;
+USE `setofskillsdb`;
 INSERT INTO `achievement_requirement` (`id`, `achievement_id`, `skill_requirement_id`, `date_started`, `date_completed`) VALUES (1, 1, 1, '20190913', '20190913');
 
 COMMIT;
@@ -557,7 +557,7 @@ COMMIT;
 -- Data for table `supplies`
 -- -----------------------------------------------------
 START TRANSACTION;
-USE `skillsdb`;
+USE `setofskillsdb`;
 INSERT INTO `supplies` (`id`, `name`, `link`, `img_url`, `skill_id`) VALUES (1, 'rope', NULL, NULL, 1);
 
 COMMIT;
