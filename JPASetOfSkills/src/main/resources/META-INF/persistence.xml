@@ -10,7 +10,15 @@
 
 		<!-- entities here -->
 
-		<class> com.skilldistillery.jobtracking.entities.User</class>
+		<class> com.project.setofskills.entities.Achievement</class>
+		<class> com.project.setofskills.entities.AchievementRequirement</class>
+		<class> com.project.setofskills.entities.Achiever</class>
+		<class> com.project.setofskills.entities.Requirement</class>
+		<class> com.project.setofskills.entities.Resource</class>
+		<class> com.project.setofskills.entities.Skill</class>
+		<class> com.project.setofskills.entities.SkillRequirement</class>
+		<class> com.project.setofskills.entities.Supplies</class>
+		<class> com.project.setofskills.entities.User</class>
 		<!-- entities here -->
 
 		<properties>
