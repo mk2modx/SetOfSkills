@@ -1,9 +1,12 @@
 package com.project.setofskills.entities;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Requirement {
@@ -13,7 +16,8 @@ public class Requirement {
 	private int id;
 	private String name;
 	private String description;
-	
+	@OneToMany(mappedBy = "requirement")
+	private List<SkillRequirement> skillReqs;
 	public int getId() {
 		return id;
 	}
@@ -32,23 +36,32 @@ public class Requirement {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public Requirement(int id, String name, String description) {
+	public List<SkillRequirement> getSkillReqs() {
+		return skillReqs;
+	}
+	public void setSkillReqs(List<SkillRequirement> skillReqs) {
+		this.skillReqs = skillReqs;
+	}
+	public Requirement(int id, String name, String description, List<SkillRequirement> skillReqs) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.description = description;
+		this.skillReqs = skillReqs;
 	}
-	public Requirement(String name, String description) {
+	public Requirement(String name, String description, List<SkillRequirement> skillReqs) {
 		super();
 		this.name = name;
 		this.description = description;
+		this.skillReqs = skillReqs;
 	}
 	public Requirement() {
 		super();
 	}
 	@Override
 	public String toString() {
-		return "Requirement [id=" + id + ", name=" + name + ", description=" + description + "]";
+		return "Requirement [id=" + id + ", name=" + name + ", description=" + description + ", skillReqs=" + skillReqs
+				+ "]";
 	}
 	@Override
 	public int hashCode() {
@@ -57,6 +70,7 @@ public class Requirement {
 		result = prime * result + ((description == null) ? 0 : description.hashCode());
 		result = prime * result + id;
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + ((skillReqs == null) ? 0 : skillReqs.hashCode());
 		return result;
 	}
 	@Override
@@ -79,6 +93,11 @@ public class Requirement {
 			if (other.name != null)
 				return false;
 		} else if (!name.equals(other.name))
+			return false;
+		if (skillReqs == null) {
+			if (other.skillReqs != null)
+				return false;
+		} else if (!skillReqs.equals(other.skillReqs))
 			return false;
 		return true;
 	}

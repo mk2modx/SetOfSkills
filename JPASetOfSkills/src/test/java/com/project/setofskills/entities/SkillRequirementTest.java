@@ -46,8 +46,8 @@ class SkillRequirementTest {
 	void test() {
 	
 		assertEquals(2, skillReq.getId());
-		assertEquals(2, skillReq.getRequirementId());
-		assertEquals(1, skillReq.getSkillId());
+		assertEquals(2, skillReq.getRequirement().getId());
+		assertEquals(1, skillReq.getSkill().getId());
 		assertEquals(2, skillReq.getStepNumber());
 		
 	}

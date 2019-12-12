@@ -45,8 +45,8 @@ class AchievementTest {
 	@Test
 	void test() {
 		assertEquals(4, achievement.getId());
-		assertEquals(6, achievement.getSkillId());
-		assertEquals(2, achievement.getAchieverId());
+		assertEquals(6, achievement.getSkill().getId());
+		assertEquals(2, achievement.getAchiever().getId());
 	}
 
 }

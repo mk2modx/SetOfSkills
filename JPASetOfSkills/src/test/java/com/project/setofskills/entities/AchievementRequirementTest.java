@@ -46,8 +46,8 @@ class AchievementRequirementTest {
 	void test() {
 	
 		assertEquals(1, achieveReq.getId());
-		assertEquals(1, achieveReq.getAchievementId());
-		assertEquals(1, achieveReq.getSkillRequirementId());
+		assertEquals(1, achieveReq.getAchievement().getId());
+		assertEquals(1, achieveReq.getSkillReqs().getId());
 		
 	}
 }
