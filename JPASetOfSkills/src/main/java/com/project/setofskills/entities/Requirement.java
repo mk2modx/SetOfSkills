@@ -18,6 +18,8 @@ public class Requirement {
 	private String description;
 	@OneToMany(mappedBy = "requirement")
 	private List<SkillRequirement> skillReqs;
+	
+	
 	public int getId() {
 		return id;
 	}
