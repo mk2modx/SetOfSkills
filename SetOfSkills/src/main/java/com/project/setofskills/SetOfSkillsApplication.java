@@ -20,6 +20,9 @@ public class SetOfSkillsApplication extends SpringBootServletInitializer {
 		SpringApplication.run(SetOfSkillsApplication.class, args);
 	}
 	
-	// TODO add Bean Password Encoder
-
+	@Bean
+	public PasswordEncoder configurePasswordEncoder() {
+		return new BCryptPasswordEncoder();
+	}
+	
 }

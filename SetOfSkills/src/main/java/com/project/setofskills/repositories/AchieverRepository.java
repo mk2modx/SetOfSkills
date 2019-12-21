@@ -8,7 +8,7 @@ import com.project.setofskills.entities.Achiever;
 
 public interface AchieverRepository extends JpaRepository<Achiever, Integer> {
 
-	@Query(value="SELECT a FROM Achiever a JOIN FETCH a.user.username = :username")
+	@Query(value="SELECT a FROM Achiever a JOIN FETCH a.user WHERE a.user.username = :username")
 	Achiever findByUsername(@Param("username")String username);
 
 }
