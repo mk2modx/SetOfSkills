@@ -20,6 +20,9 @@ public class UserController {
 	@Autowired
 	private UserService serv;
 	
+	
+	
+	
 	@GetMapping("users")
 	public List<User> index(Principal principal) {
 		return serv.index();

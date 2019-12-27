@@ -22,8 +22,8 @@ DROP TABLE IF EXISTS `user` ;
 
 CREATE TABLE IF NOT EXISTS `user` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `username` VARCHAR(45) NOT NULL,
-  `password` VARCHAR(45) NOT NULL,
+  `username` VARCHAR(100) NOT NULL,
+  `password` VARCHAR(500) NOT NULL,
   `enabled` TINYINT NULL DEFAULT 1,
   `role` VARCHAR(45) NULL DEFAULT 'user',
   `email` VARCHAR(100) NOT NULL,
@@ -242,7 +242,7 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `setofskillsdb`;
-INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `email`) VALUES (1, 'tester', 'tester', true, 'user', 'marx@gmail.com');
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `email`) VALUES (1, 'tester', '$2a$10$1c4jb9GrApg33th/LhouMOpN6BrSfqQEwSVc8C4lAqTIZvsETqJ0m', true, 'user', 'marx@gmail.com');
 INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `email`) VALUES (2, 'joe', 'doe', true, 'user', 'marx1@gmail.com');
 INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `email`) VALUES (3, 'josh', 'josh1', true, 'admin', 'marx2@gmail.com');
 INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `email`) VALUES (4, 'branden', 'branden1', true, 'admin', 'marx3@gmail.com');
