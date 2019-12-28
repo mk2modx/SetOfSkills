@@ -5,6 +5,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class User {
 	
@@ -18,6 +20,7 @@ public class User {
 	private String email;
 	
 	@OneToOne(mappedBy="user")
+	@JsonIgnore
 	private Achiever achiever;
 
 	public int getId() {

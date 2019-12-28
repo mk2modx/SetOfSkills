@@ -13,6 +13,7 @@
 		<class> com.project.setofskills.entities.Achievement</class>
 		<class> com.project.setofskills.entities.AchievementRequirement</class>
 		<class> com.project.setofskills.entities.Achiever</class>
+		<class> com.project.setofskills.entities.AchieverCreate</class>
 		<class> com.project.setofskills.entities.Requirement</class>
 		<class> com.project.setofskills.entities.Resource</class>
 		<class> com.project.setofskills.entities.Skill</class>
