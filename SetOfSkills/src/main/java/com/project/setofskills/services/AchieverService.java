@@ -2,7 +2,9 @@ package com.project.setofskills.services;
 
 import java.util.List;
 
+import com.project.setofskills.entities.Achievement;
 import com.project.setofskills.entities.Achiever;
+import com.project.setofskills.entities.Skill;
 import com.project.setofskills.entities.User;
 
 public interface AchieverService {
@@ -16,5 +18,7 @@ public interface AchieverService {
 	Achiever create(Achiever achiever, User user);
 
 	Achiever update(Achiever achiever, User user, Integer studentId);
+
+	Achievement addAchievement(Integer achieverId, Integer skillId);
 
 }

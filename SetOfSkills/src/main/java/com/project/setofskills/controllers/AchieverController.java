@@ -21,6 +21,7 @@ import com.project.setofskills.entities.Achiever;
 import com.project.setofskills.entities.AchieverCreate;
 import com.project.setofskills.entities.User;
 import com.project.setofskills.services.AchieverService;
+import com.project.setofskills.services.UserService;
 
 @RestController
 @RequestMapping("api")
@@ -32,6 +33,11 @@ public class AchieverController {
 	@Autowired
 	private PasswordEncoder encoder;
 
+	@Autowired
+	private UserService userv;
+	
+	
+	
 	// A C H I E V E R S
 
 	@GetMapping("achievers")
@@ -51,24 +57,21 @@ public class AchieverController {
 
 	}
 	
-	@PostMapping("achievers")
-	public AchieverCreate createAchiever(@RequestBody AchieverCreate ac, HttpServletResponse resp, 
+	@PostMapping("achievers/{uid}")
+	public AchieverCreate createAchiever(@PathVariable("uid") int userId,@RequestBody AchieverCreate ac, HttpServletResponse resp, 
 			HttpServletRequest req, Principal principal ) {
 				Achiever created = null;
 						
 				Achiever achiever = new Achiever();
-				User user = new User();
+				
+				User user = userv.findById(userId);
 				
 				achiever.setAge(ac.getAge());
 				achiever.setFirstName(ac.getFirstName());
 				achiever.setLastName(ac.getLastName());
 				achiever.setImageLink(ac.getImageLink());
 				
-				user.setEnabled(ac.isEnabled());
-				user.setPassword(encoder.encode(ac.getPassword()));
-				user.setRole("USER");
-				user.setUsername(ac.getUsername());
-				user.setEmail(ac.getEmail());
+				
 				
 				try {
 					created = achieserv.create(achiever, user);

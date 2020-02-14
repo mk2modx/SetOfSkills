@@ -25,6 +25,17 @@ public class UserServiceImpl implements UserService {
 	}
 	
 	@Override
+	public User findById(Integer id) {
+		Optional<User> use = userrepo.findById(id);
+		User foundUser = null;
+		if (use.isPresent()) {
+			foundUser = use.get();
+		}
+		return foundUser;
+		
+	}
+	
+	@Override
 	public List<User> index() {
 		return userrepo.findAll();
 	}
@@ -40,11 +51,13 @@ public class UserServiceImpl implements UserService {
 		return null;
 	}
 	
+
 	@Override
 	public User create(User user) {
 		
 		User newUser = null;
 		if(user != null) {
+			user.setPassword(encoder.encode(user.getPassword()));
 			newUser = userrepo.saveAndFlush(user);
 		}
 		return newUser;

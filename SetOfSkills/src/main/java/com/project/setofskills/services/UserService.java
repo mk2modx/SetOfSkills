@@ -19,4 +19,6 @@ public interface UserService {
 
 	Boolean deleteUserById(Integer id);
 
+	User findById(Integer id);
+
 }

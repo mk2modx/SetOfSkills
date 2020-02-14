@@ -6,9 +6,13 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.project.setofskills.entities.Achievement;
 import com.project.setofskills.entities.Achiever;
+import com.project.setofskills.entities.Skill;
 import com.project.setofskills.entities.User;
+import com.project.setofskills.repositories.AchievementRepository;
 import com.project.setofskills.repositories.AchieverRepository;
+import com.project.setofskills.repositories.SkillRepository;
 import com.project.setofskills.repositories.UserRepository;
 
 @Service
@@ -19,6 +23,13 @@ public class AchieverServiceImpl implements AchieverService {
 	
 	@Autowired
 	private UserRepository userrepo;
+	
+	@Autowired
+	private SkillRepository skillrepo;
+	
+	@Autowired
+	private AchievementRepository achievementrepo;
+	
 	
 	@Override
 	public Achiever findByUserName(String username) {
@@ -65,6 +76,26 @@ public class AchieverServiceImpl implements AchieverService {
 			achieverepo.saveAndFlush(actualAchiever);
 		}
 		return achiever;
+		
+	}
+	
+	@Override
+	public Achievement addAchievement(Integer achieverId, Integer skillId) {
+		Achiever actualAchiever = null;
+		Skill actualSkill = null;
+		Achievement newAchievement = null;
+		Optional<Achiever> managedAchiever = achieverepo.findById(achieverId);
+		Optional<Skill> managedSkill = skillrepo.findById(skillId);
+		
+		if(managedAchiever.isPresent() && managedSkill.isPresent()) {
+			actualAchiever = managedAchiever.get();
+			actualSkill = managedSkill.get();
+			newAchievement.setAchiever(actualAchiever);
+			newAchievement.setSkill(actualSkill);
+			achievementrepo.saveAndFlush(newAchievement);
+			
+		}
+		return newAchievement;
 		
 	}
 }
