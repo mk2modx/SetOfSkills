@@ -56,6 +56,7 @@ public class UserServiceImpl implements UserService {
 		Optional<User> use = userrepo.findById(id);
 		User updateUser = null;
 		if(use.isPresent()) {
+			updateUser = use.get();
 			updateUser.setPassword(encoder.encode(user.getPassword()));
 			updateUser.setUsername(user.getUsername());
 			updateUser.setEnabled(user.isEnabled());
