@@ -18,8 +18,7 @@ public class Requirement {
 	private String description;
 	@OneToMany(mappedBy = "requirement")
 	private List<SkillRequirement> skillReqs;
-	
-	
+	private int pointVal;
 	public int getId() {
 		return id;
 	}
@@ -44,26 +43,34 @@ public class Requirement {
 	public void setSkillReqs(List<SkillRequirement> skillReqs) {
 		this.skillReqs = skillReqs;
 	}
-	public Requirement(int id, String name, String description, List<SkillRequirement> skillReqs) {
+	public int getPointVal() {
+		return pointVal;
+	}
+	public void setPointVal(int pointVal) {
+		this.pointVal = pointVal;
+	}
+	public Requirement(int id, String name, String description, List<SkillRequirement> skillReqs, int pointVal) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.description = description;
 		this.skillReqs = skillReqs;
-	}
-	public Requirement(String name, String description, List<SkillRequirement> skillReqs) {
-		super();
-		this.name = name;
-		this.description = description;
-		this.skillReqs = skillReqs;
+		this.pointVal = pointVal;
 	}
 	public Requirement() {
 		super();
 	}
+	public Requirement(String name, String description, List<SkillRequirement> skillReqs, int pointVal) {
+		super();
+		this.name = name;
+		this.description = description;
+		this.skillReqs = skillReqs;
+		this.pointVal = pointVal;
+	}
 	@Override
 	public String toString() {
 		return "Requirement [id=" + id + ", name=" + name + ", description=" + description + ", skillReqs=" + skillReqs
-				+ "]";
+				+ ", pointVal=" + pointVal + "]";
 	}
 	@Override
 	public int hashCode() {
@@ -72,6 +79,7 @@ public class Requirement {
 		result = prime * result + ((description == null) ? 0 : description.hashCode());
 		result = prime * result + id;
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + pointVal;
 		result = prime * result + ((skillReqs == null) ? 0 : skillReqs.hashCode());
 		return result;
 	}
@@ -96,6 +104,8 @@ public class Requirement {
 				return false;
 		} else if (!name.equals(other.name))
 			return false;
+		if (pointVal != other.pointVal)
+			return false;
 		if (skillReqs == null) {
 			if (other.skillReqs != null)
 				return false;
@@ -104,5 +114,6 @@ public class Requirement {
 		return true;
 	}
 	
+
 	
 }
