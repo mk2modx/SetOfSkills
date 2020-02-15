@@ -88,16 +88,17 @@ public class AchieverServiceImpl implements AchieverService {
 	public Achievement addAchievement(Integer achieverId, Integer skillId) {
 		Achiever actualAchiever = null;
 		Skill actualSkill = null;
-		Achievement newAchievement = null;
+		Achievement newAchievement = new Achievement();
+
 		Optional<Achiever> managedAchiever = achieverepo.findById(achieverId);
 		Optional<Skill> managedSkill = skillrepo.findById(skillId);
 		
-		if(managedAchiever.isPresent() && managedSkill.isPresent()) {
+		if(managedAchiever.isPresent()) {
 			actualAchiever = managedAchiever.get();
 			actualSkill = managedSkill.get();
 			newAchievement.setAchiever(actualAchiever);
 			newAchievement.setSkill(actualSkill);
-			achievementrepo.saveAndFlush(newAchievement);
+			newAchievement = achievementrepo.saveAndFlush(newAchievement);
 			
 		}
 		return newAchievement;

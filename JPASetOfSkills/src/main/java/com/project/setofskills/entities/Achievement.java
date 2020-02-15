@@ -154,6 +154,11 @@ public class Achievement {
 		return "Achievement [id=" + id + ", dateStarted=" + dateStarted + ", achiever=" + achiever + ", skill=" + skill
 				+ "]";
 	}
+
+	public Achievement(Skill skill) {
+		super();
+		this.skill = skill;
+	}
 	
 	
 }

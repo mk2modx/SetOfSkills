@@ -27,6 +27,7 @@ public class Skill {
 	@OneToMany(mappedBy = "skill")
 	@JsonIgnore
 	private List<Achievement> achievements;
+	
 	@OneToMany(mappedBy = "skill")
 	@JsonIgnore
 	private List<SkillRequirement> skillReqs;
@@ -141,12 +142,7 @@ public class Skill {
 		super();
 	}
 
-	@Override
-	public String toString() {
-		return "Skill [id=" + id + ", name=" + name + ", description=" + description + ", summary=" + summary
-				+ ", preReq=" + preReq + ", achievements=" + achievements + ", skillReqs=" + skillReqs + ", supplies="
-				+ supplies + ", resources=" + resources + "]";
-	}
+	
 
 	@Override
 	public int hashCode() {
@@ -214,6 +210,15 @@ public class Skill {
 			return false;
 		return true;
 	}
+
+	@Override
+	public String toString() {
+		return "Skill [id=" + id + ", name=" + name + ", description=" + description + ", summary=" + summary
+				+ ", preReq=" + preReq + ", skillReqs=" + skillReqs + ", supplies=" + supplies + ", resources="
+				+ resources + "]";
+	}
+
+	
 	
 	
 	

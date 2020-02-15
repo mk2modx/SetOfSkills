@@ -32,8 +32,8 @@ public class Achiever {
 	private LocalDate age;
 	@Column(name = "image_link")
 	private String imageLink;
-	@JsonIgnore
 	@OneToMany(mappedBy = "achiever")
+	@JsonIgnore
 	private List<Achievement> achievements;
 
 	public int getId() {
