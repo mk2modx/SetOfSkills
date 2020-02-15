@@ -1,5 +1,6 @@
 package com.project.setofskills.services;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -98,6 +99,8 @@ public class AchieverServiceImpl implements AchieverService {
 			actualSkill = managedSkill.get();
 			newAchievement.setAchiever(actualAchiever);
 			newAchievement.setSkill(actualSkill);
+			LocalDate addNow = LocalDate.now();
+			newAchievement.setDateStarted(addNow);
 			newAchievement = achievementrepo.saveAndFlush(newAchievement);
 			
 		}
