@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,6 +32,19 @@ public class SkillController {
 		return skillserv.index();
 	}
 	
+	@GetMapping("skills/{id}")
+	public Skill show(@PathVariable("id") int id, HttpServletResponse resp, Principal principal) {
+		Skill skill = skillserv.show(id);
+		if (skill != null) {
+			resp.setStatus(200);
+		} else {
+			resp.setStatus(404);
+		}
+		
+		return skill;
+		
+	}
+	
 	@PostMapping("skills")
 	public Skill createSkill(@RequestBody Skill skill, HttpServletResponse resp, HttpServletRequest req, Principal principal) {
 		Skill newSkill = null;
@@ -49,4 +63,5 @@ public class SkillController {
 		return newSkill;
 		
 	}
+
 }

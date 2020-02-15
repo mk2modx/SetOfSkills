@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.project.setofskills.entities.Achievement;
 import com.project.setofskills.entities.Achiever;
 import com.project.setofskills.entities.AchieverCreate;
 import com.project.setofskills.entities.User;
@@ -37,12 +38,16 @@ public class AchieverController {
 	private UserService userv;
 	
 	
-	
 	// A C H I E V E R S
 
 	@GetMapping("achievers")
 	public List<Achiever> index() {
 		return achieserv.index();
+	}
+	
+	@GetMapping("achievements")
+	public List<Achievement> index2() {
+		return achieserv.indexAchievement();
 	}
 
 	@GetMapping("achievers/{id}")
@@ -58,7 +63,7 @@ public class AchieverController {
 	}
 	
 	@PostMapping("achievers/{uid}")
-	public AchieverCreate createAchiever(@PathVariable("uid") int userId,@RequestBody AchieverCreate ac, HttpServletResponse resp, 
+	public Achiever createAchiever(@PathVariable("uid") int userId,@RequestBody Achiever ac, HttpServletResponse resp, 
 			HttpServletRequest req, Principal principal ) {
 				Achiever created = null;
 						
@@ -123,6 +128,26 @@ public class AchieverController {
 return ac;
 
 }
+
+@PostMapping("achievements/{aid}/achievers/{sid}/skills")
+public Achievement createAchievement(@PathVariable("aid") int achieverId, @PathVariable("sid") int skillId, 
+		HttpServletResponse resp, HttpServletRequest req, Principal principal) {
+		
+	Achievement created = null;
 	
+	try {
+		created = achieserv.addAchievement(achieverId, skillId);
+		StringBuffer url = req.getRequestURL();
+		url.append("/" + created.getId());
+		resp.setStatus(201);
+		resp.setHeader("Location", url.toString());
+	} catch (Exception e) {
+		System.err.println(e);
+		resp.setStatus(400);
+	}
+	
+	return created;
+	
+}
 	
 }

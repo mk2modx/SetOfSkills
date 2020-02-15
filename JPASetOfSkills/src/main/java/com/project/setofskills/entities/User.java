@@ -105,11 +105,7 @@ public class User {
 		super();
 	}
 
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", enabled=" + enabled + ", password=" + password + ", username=" + username
-				+ ", role=" + role + ", email=" + email + ", achiever=" + achiever + "]";
-	}
+	
 
 	@Override
 	public int hashCode() {
@@ -164,6 +160,12 @@ public class User {
 		} else if (!username.equals(other.username))
 			return false;
 		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", enabled=" + enabled + ", password=" + password + ", username=" + username
+				+ ", role=" + role + ", email=" + email + "]";
 	}
 	
 	

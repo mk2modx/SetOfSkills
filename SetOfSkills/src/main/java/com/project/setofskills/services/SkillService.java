@@ -12,4 +12,6 @@ public interface SkillService {
 
 	List<Skill> index();
 
+	Skill show(Integer id);
+
 }

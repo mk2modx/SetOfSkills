@@ -35,6 +35,7 @@ public class Achievement {
 	@JoinColumn(name = "skill_id")
 	private Skill skill;
 	@OneToMany(mappedBy = "achievement")
+	@JsonIgnore
 	private List<AchievementRequirement> achievementReqs;
 
 	public int getId() {
@@ -100,11 +101,7 @@ public class Achievement {
 		super();
 	}
 
-	@Override
-	public String toString() {
-		return "Achievement [id=" + id + ", dateStarted=" + dateStarted + ", achiever=" + achiever + ", skill=" + skill
-				+ ", achievementReqs=" + achievementReqs + "]";
-	}
+
 
 	@Override
 	public int hashCode() {
@@ -150,6 +147,12 @@ public class Achievement {
 		} else if (!skill.equals(other.skill))
 			return false;
 		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "Achievement [id=" + id + ", dateStarted=" + dateStarted + ", achiever=" + achiever + ", skill=" + skill
+				+ "]";
 	}
 	
 	

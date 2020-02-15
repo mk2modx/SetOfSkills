@@ -43,6 +43,11 @@ public class AchieverServiceImpl implements AchieverService {
 	}
 	
 	@Override
+	public List<Achievement> indexAchievement() {
+		return achievementrepo.findAll();
+	}
+	
+	@Override
 	public Achiever findByAchieverId(Integer id) {
 		return achieverepo.findById(id).get();
 	}

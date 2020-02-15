@@ -20,7 +20,9 @@ public class Achiever {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	
 	@OneToOne
+	@JsonIgnore
 	@JoinColumn(name = "user_id")
 	private User user;	
 	@Column(name = "firstname")
@@ -117,12 +119,7 @@ public class Achiever {
 		super();
 	}
 
-	@Override
-	public String toString() {
-		return "Achiever [id=" + id + ", user=" + user + ", firstName=" + firstName + ", lastName=" + lastName
-				+ ", age=" + age + ", imageLink=" + imageLink + ", achievements=" + achievements + "]";
-	}
-
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -179,6 +176,12 @@ public class Achiever {
 		} else if (!user.equals(other.user))
 			return false;
 		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "Achiever [id=" + id + ", user=" + user + ", firstName=" + firstName + ", lastName=" + lastName
+				+ ", age=" + age + ", imageLink=" + imageLink + "]";
 	}
 	
 	

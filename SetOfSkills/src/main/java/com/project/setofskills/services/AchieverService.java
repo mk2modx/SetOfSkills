@@ -21,4 +21,6 @@ public interface AchieverService {
 
 	Achievement addAchievement(Integer achieverId, Integer skillId);
 
+	List<Achievement> indexAchievement();
+
 }
