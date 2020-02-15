@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Skill {
 
@@ -23,13 +25,17 @@ public class Skill {
 	private int preReq;
 	
 	@OneToMany(mappedBy = "skill")
+	@JsonIgnore
 	private List<Achievement> achievements;
 	@OneToMany(mappedBy = "skill")
+	@JsonIgnore
 	private List<SkillRequirement> skillReqs;
 	@OneToMany(mappedBy = "skill")
+	@JsonIgnore
 	private List<Supplies> supplies;
 	
 	@ManyToMany(mappedBy = "skills")
+	@JsonIgnore
 	private List<Resource> resources;
 
 	public int getId() {

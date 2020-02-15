@@ -12,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Achievement {
 
@@ -32,7 +34,6 @@ public class Achievement {
 	@ManyToOne
 	@JoinColumn(name = "skill_id")
 	private Skill skill;
-	
 	@OneToMany(mappedBy = "achievement")
 	private List<AchievementRequirement> achievementReqs;
 
