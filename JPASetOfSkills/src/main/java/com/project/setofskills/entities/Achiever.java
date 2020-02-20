@@ -33,7 +33,6 @@ public class Achiever {
 	@Column(name = "image_link")
 	private String imageLink;
 	@OneToMany(mappedBy = "achiever")
-	@JsonIgnore
 	private List<Achievement> achievements;
 
 	public int getId() {

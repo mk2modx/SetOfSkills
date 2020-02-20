@@ -62,7 +62,13 @@ export class UserComponent implements OnInit {
     // console.log('logout');
     this.auth.logout();
     if (this.auth.logoutSuccess) {
+      this.refreshApps();
     }
   }
 
+  checkLogin() {
+    // console.log('Header Component- checkLogin()');
+    // console.log(this.auth.checkLogin());
+    return this.auth.checkLogin();
+  }
 }

@@ -30,6 +30,7 @@ public class Achievement {
 	
 	@ManyToOne
 	@JoinColumn(name = "achiever_id")
+	@JsonIgnore
 	private Achiever achiever;
 	
 	@ManyToOne
