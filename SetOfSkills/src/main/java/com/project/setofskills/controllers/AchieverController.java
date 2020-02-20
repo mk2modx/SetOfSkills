@@ -37,6 +37,7 @@ public class AchieverController {
 	@Autowired
 	private UserService userv;
 	
+
 	
 	// A C H I E V E R S
 
@@ -49,6 +50,13 @@ public class AchieverController {
 	public List<Achievement> index2() {
 		return achieserv.indexAchievement();
 	}
+	
+	@GetMapping("achiever/{username}")
+	public Achiever getAchieverByUsername(@PathVariable("username") String username, Principal principal) {
+		
+		return achieserv.findByUserName(username);
+	}
+	
 
 	@GetMapping("achievers/{id}")
 	public Achiever getAchieverById(@PathVariable("id") int id, HttpServletResponse resp, Principal principal) {
@@ -127,6 +135,14 @@ public class AchieverController {
 		
 return ac;
 
+}
+	
+@GetMapping("achievements/{aid}/achievers")
+public List<Achievement> achievements(@PathVariable("aid") int id, Principal principal) {
+	
+	
+	return achieserv.indexAchievementsByAchieverId(id);
+	
 }
 
 @PostMapping("achievements/{aid}/achievers/{sid}/skills")

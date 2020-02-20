@@ -371,11 +371,11 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `setofskillsdb`;
-INSERT INTO `achiever` (`id`, `user_id`, `firstname`, `lastname`, `age`, `image_link`) VALUES (1, 1, 'testerprofile', NULL, NULL, NULL);
-INSERT INTO `achiever` (`id`, `user_id`, `firstname`, `lastname`, `age`, `image_link`) VALUES (2, 2, 'johnprofile', NULL, NULL, NULL);
-INSERT INTO `achiever` (`id`, `user_id`, `firstname`, `lastname`, `age`, `image_link`) VALUES (3, 3, 'joshprofile', NULL, NULL, NULL);
-INSERT INTO `achiever` (`id`, `user_id`, `firstname`, `lastname`, `age`, `image_link`) VALUES (4, 4, 'brandenprofile', NULL, NULL, NULL);
-INSERT INTO `achiever` (`id`, `user_id`, `firstname`, `lastname`, `age`, `image_link`) VALUES (5, 5, 'mark ', NULL, NULL, NULL);
+INSERT INTO `achiever` (`id`, `user_id`, `firstname`, `lastname`, `age`, `image_link`) VALUES (1, 1, 'Johnny', 'Jrod', NULL, NULL);
+INSERT INTO `achiever` (`id`, `user_id`, `firstname`, `lastname`, `age`, `image_link`) VALUES (2, 2, 'Limu', 'Bai', NULL, NULL);
+INSERT INTO `achiever` (`id`, `user_id`, `firstname`, `lastname`, `age`, `image_link`) VALUES (3, 3, 'Shang', 'Tsung', NULL, NULL);
+INSERT INTO `achiever` (`id`, `user_id`, `firstname`, `lastname`, `age`, `image_link`) VALUES (4, 4, 'Liu', 'Kang', NULL, NULL);
+INSERT INTO `achiever` (`id`, `user_id`, `firstname`, `lastname`, `age`, `image_link`) VALUES (5, 5, 'Mark', 'Ag', NULL, NULL);
 
 COMMIT;
 

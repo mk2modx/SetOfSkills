@@ -8,7 +8,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 // import { FormModalComponent } from './components/form-modal/form-modal.component';
 // import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
-
+import {NgbModule, NgbModalModule} from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
@@ -17,6 +17,7 @@ import { TestSetOfSkillsComponent } from './components/test-set-of-skills/test-s
 import { AchieverComponent } from './components/achiever/achiever.component';
 import { AchievementComponent } from './components/achievement/achievement.component';
 import { SkillComponent } from './components/skill/skill.component';
+import { UserComponent } from './components/user/user.component';
 
 @NgModule({
   declarations: [
@@ -24,15 +25,17 @@ import { SkillComponent } from './components/skill/skill.component';
     TestSetOfSkillsComponent,
     AchieverComponent,
     AchievementComponent,
-    SkillComponent
+    SkillComponent,
+    UserComponent
     // FormModalComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
-    // NgbModalModule
+    FormsModule,
+    NgbModule,
+    NgbModalModule
 
   ],
   providers: [

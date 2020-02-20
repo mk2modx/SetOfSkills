@@ -1,0 +1,31 @@
+<div>
+  <form id="loginForm" #loginForm="ngForm">
+  <input type="text" name="username" ngModel placeholder="Username">
+  <input type="password" name="password" ngModel placeholder="Password">
+  <input type="submit" value="Login" (click)="login(loginForm)">
+
+  </form>
+</div>
+
+<div *ngIf="achiever">
+<table>
+  <tr><td><h2>You are Logged In</h2><button (click) = 'logout()'>Logout </button></td></tr>
+  <tr>
+    <td><h4>{{achiever.firstName}}</h4></td>
+  </tr>
+  <tr>
+    <td><h4>{{achiever.lastName}}</h4></td>
+  </tr>
+
+
+</table>
+</div>
+
+<div>
+<app-achiever>
+
+</app-achiever>
+
+
+
+</div>

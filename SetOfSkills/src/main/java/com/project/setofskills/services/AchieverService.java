@@ -23,4 +23,6 @@ public interface AchieverService {
 
 	List<Achievement> indexAchievement();
 
+	List<Achievement> indexAchievementsByAchieverId(Integer achieverId);
+
 }

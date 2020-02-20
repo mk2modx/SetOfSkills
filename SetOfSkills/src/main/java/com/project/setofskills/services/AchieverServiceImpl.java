@@ -86,6 +86,17 @@ public class AchieverServiceImpl implements AchieverService {
 	}
 	
 	@Override
+	public List<Achievement> indexAchievementsByAchieverId(Integer achieverId) {
+		List <Achievement> achievements = null;
+		achievements = achievementrepo.findAchievementsByAchieverId(achieverId);
+		
+		
+		
+		return achievements;
+		
+	}
+	
+	@Override
 	public Achievement addAchievement(Integer achieverId, Integer skillId) {
 		Achiever actualAchiever = null;
 		Skill actualSkill = null;
