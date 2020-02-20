@@ -18,6 +18,9 @@ import { AchieverComponent } from './components/achiever/achiever.component';
 import { AchievementComponent } from './components/achievement/achievement.component';
 import { SkillComponent } from './components/skill/skill.component';
 import { UserComponent } from './components/user/user.component';
+import { NavComponent } from './components/nav/nav.component';
+import { ProfilenavComponent } from './components/profilenav/profilenav.component';
+import { MainpageComponent } from './components/mainpage/mainpage.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,10 @@ import { UserComponent } from './components/user/user.component';
     AchieverComponent,
     AchievementComponent,
     SkillComponent,
-    UserComponent
+    UserComponent,
+    NavComponent,
+    ProfilenavComponent,
+    MainpageComponent
     // FormModalComponent
   ],
   imports: [

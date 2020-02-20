@@ -29,7 +29,7 @@ export class UserComponent implements OnInit {
     this.achieveService.getAchieverByUsername().subscribe(
       data => {
         this.achiever = new Achiever(data.id, data.user, data.firstName, data.lastName, data.age, data.imageLink, data.achievements);
-
+        this.achievements = data.achievements;
 
       },
 
@@ -62,7 +62,7 @@ export class UserComponent implements OnInit {
     // console.log('logout');
     this.auth.logout();
     if (this.auth.logoutSuccess) {
-      this.refreshApps();
+
     }
   }
 

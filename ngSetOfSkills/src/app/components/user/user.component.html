@@ -1,17 +1,14 @@
-<div>
+<div *ngIf="!checkLogin()">
   <form id="loginForm" #loginForm="ngForm">
   <input type="text" name="username" ngModel placeholder="Username">
   <input type="password" name="password" ngModel placeholder="Password">
   <input type="submit" value="Login" (click)="login(loginForm)">
-
   </form>
-  <div>
-
-    <button (click) = "logout()">Logout </button>
-
   </div>
 
-</div>
+  <div>
+      <button (click) = "logout()">Logout </button>
+  </div>
 
 <div *ngIf="checkLogin()">
 <table>
@@ -19,14 +16,20 @@
   <tr>
     <td><h4>{{achiever.firstName}}</h4></td>
   </tr>
-  <tr>
-    <td><h4>{{achiever.lastName}}</h4></td>
-  </tr>
 
+<div *ngFor="let achievements of achiever.achievements">
+  <hr>
   <tr>
-    <td><h4>{{achiever | json}}</h4></td>
+    <td>
+      <h4>{{achievements.skill.name}}</h4><p>{{achievements.dateStarted}}</p>
+    </td>
   </tr>
-
+            <tr>
+              <td>
+            <p>{{achievements.skill.description}}</p>
+              </td>
+            </tr>
+</div>
 
 </table>
 </div>
