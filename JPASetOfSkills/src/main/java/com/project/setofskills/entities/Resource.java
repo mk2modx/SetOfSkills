@@ -28,6 +28,7 @@ public class Resource {
 	private String siteLink;
 	
 	@ManyToMany
+	@JsonIgnore
 	@JoinTable(name = "skill_resource",
 	joinColumns=@JoinColumn(name = "resources_id"),
 	inverseJoinColumns=@JoinColumn(name= "skill_id")

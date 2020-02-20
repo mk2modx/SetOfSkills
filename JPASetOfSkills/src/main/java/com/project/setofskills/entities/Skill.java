@@ -36,7 +36,6 @@ public class Skill {
 	private List<Supplies> supplies;
 	
 	@ManyToMany(mappedBy = "skills")
-	@JsonIgnore
 	private List<Resource> resources;
 
 	public int getId() {
