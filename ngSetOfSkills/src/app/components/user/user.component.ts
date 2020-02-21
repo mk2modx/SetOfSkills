@@ -35,6 +35,8 @@ export class UserComponent implements OnInit {
 
       err => console.error('Fetch student err: ' + err)
       );  }
+
+
       checkRole() {
         return this.role = this.auth.getRole();
 

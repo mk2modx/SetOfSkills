@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 import { User } from '../models/user';
+import { Skill } from '../models/skill';
 
 @Injectable({
   providedIn: 'root'
@@ -48,6 +49,23 @@ export class UserService {
       catchError((err: any) => {
         console.log(err);
         return throwError('Student service.registerStudent(); error registering student ');
+      })
+    );
+  }
+
+  getSkills() {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        Authorization: `Basic ${this.credentials}`,
+        'X-Requested-With': 'XMLHttpRequest'
+      })
+    };
+
+    return this.http.get<Skill[]>('http://localhost:8099/api/skills/', httpOptions)
+    .pipe(
+      catchError((err: any) => {
+        console.log(err);
+        return throwError('error Getting skills in user.service ');
       })
     );
   }

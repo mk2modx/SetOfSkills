@@ -3,6 +3,16 @@
   <span>
     <img id="SDLogo" src="/assets/setofskills.png" width="400">
   </span>
+  <span *ngIf="!checkLogin()" class="float-right">
+    <form id="loginForm" #loginForm="ngForm">
+      <input type="text" name="username" ngModel placeholder="Username">
+      <input type="password" name="password" ngModel placeholder="Password">
+      <input type="submit" value="Login" (click)="login(loginForm)">
+      </form>
+  </span>
+  <span *ngIf="checkLogin()" class="float-right">
+    <button (click) = "logout()">Logout </button>
+  </span>
   <!-- <span *ngIf="!checkLogin()" class="float-right"><app-login></app-login></span>
   <span *ngIf="checkLogin()" class="float-right"><app-logout></app-logout></span> -->
 </div>
@@ -10,3 +20,4 @@
 <div class="scroll-to-top" [ngClass]="{'show-scrollTop': windowScrolled}">
   <button (click)="scrollToTop()"> <i class="fa fa-chevron-up"></i></button>
 </div>
+
